@@ -43,7 +43,7 @@ public class MemberController extends HttpServlet {
 		}
 	}
 
-// 회원가입[9월15일 고연진]
+// 회원가입
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		MultipartRequest multi= new MultipartRequest(request, //요청방식 
 				request.getServletContext().getRealPath("/member/img"),//저장경로

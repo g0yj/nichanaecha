@@ -12,7 +12,7 @@ public class MemberDao extends Dao {
 	private MemberDao() {}
 	
 	
-	// 1. 회원가입 [9월15일 고연진]
+	//회원가입
 	public boolean signup(MemberDto dto) {
 		try {
 			String sql = "insert into member(mid,mpw,mphone,mname,mads) values(?,?,?,?,?)";
@@ -35,7 +35,7 @@ public class MemberDao extends Dao {
 	
 
 	
-	// 2. 로그인
+	// 로그인
 	public boolean login( String mid, String mpw) {
 		try {
 			String sql = "select * from member where mid = ? and mpw = ?";
@@ -46,15 +46,10 @@ public class MemberDao extends Dao {
 		}catch (Exception e) {System.out.println(e);}
 		return false;
 	}
+
 	
 	
-	// 3. 아이디 찾기 
-	
-	
-	// 4. 비밀번호 찾기
-	
-	
-	// 5. 내정보 호출 
+	// 내정보 호출 
 	public MemberDto info( String mid ) {
 		try {
 			String sql="select mno, mid ,mname , mads from member where mid = ?";
@@ -76,7 +71,7 @@ public class MemberDao extends Dao {
 	
 	
 	
-	// 중복성검사 [9월18일 고연진]
+	// 중복성검사
 	
 	public boolean dataCheck(String type, String data) {
 		try {

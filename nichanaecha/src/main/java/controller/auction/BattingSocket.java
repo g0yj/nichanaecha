@@ -19,9 +19,9 @@ public class BattingSocket {
   
    @OnOpen
    public void onOpen(Session session) {
-      System.out.println("접속한 클라이언트 소켓> "+session);
+     // System.out.println("접속한 클라이언트 소켓> "+session);
       clientList.add(session);
-      System.out.println("접속명단 > "+clientList);
+      //System.out.println("접속명단 > "+clientList);
       
       
    }//f()

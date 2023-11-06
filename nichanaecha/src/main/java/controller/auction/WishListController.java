@@ -39,7 +39,7 @@ public class WishListController extends HttpServlet {
     	   }
 
 	
-//스크랩 게시물 추가 [9월21일 고연진]	
+//스크랩 게시물 추가
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		int mno =((MemberDto)request.getSession().getAttribute("loginDto")).getMno();
 		int ano = Integer.parseInt(request.getParameter("ano")); 

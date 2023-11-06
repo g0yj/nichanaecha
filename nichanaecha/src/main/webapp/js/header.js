@@ -141,31 +141,7 @@ MSocket.onclose=e=>{console.log('서버소켓과 통신이 끝났음. 로그아�
 
 
 
-//3. 알람메세지 출력 함수[10월7일 고연진] - 미완성
-function alarmPrint(x){
-	
-	
-	`<div class="position-relative "><!-- x버튼 누르면 전체 비움. -->
-   							 <div class="position-absolute top-0 end-0 alarmBox">
-    							<div class="topBox"><!-- js -->
-    								<div class="date">2022-12-12</div>
-    								<button type="button" class="btn-close" aria-label="Close"></button>
-    							</div>
-    							<div class="middleBox"><!-- js -->
-    								알람내용아아아아ㅏ아아아ㅏ앙
-    							</div>
-    	
-    							<div class="bottomBox"><!-- js -->
-    								<button>수락</button>
-    								<button>거절</button>
-   							 	</div>
-    
-  							  </div><!-- 상위배치 -->
-    					</div><!-- "position-relative" 상위꼭대기배치를위한 박스 -->
-	`
-	
-	
-}//f()
+
 
 
 

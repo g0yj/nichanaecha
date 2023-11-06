@@ -26,7 +26,7 @@ public class MemberFindController extends HttpServlet {
         // TODO Auto-generated constructor stub
     }
 
-	//아이디/이메일 중복검사[9월16일 고연진]
+	//아이디/이메일 중복검사
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String type=request.getParameter("type"); //System.out.println("중복체크타입"+type);
 		if (type.equals("check")) {

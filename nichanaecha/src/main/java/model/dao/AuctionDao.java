@@ -102,7 +102,7 @@ public class AuctionDao extends Dao {
 			return imglist;
 			
 		} catch (Exception e) {
-			System.out.println("자동차 img Map 반환 함수 sql 예외");
+			//System.out.println("자동차 img Map 반환 함수 sql 예외");
 			return null;
 		}
 		
@@ -132,7 +132,7 @@ public class AuctionDao extends Dao {
 			return dto;
 			
 		} catch (Exception e) {
-			System.out.println("자동차 주소 테이블 반환 공통 함수 예외 : "+e);
+			//System.out.println("자동차 주소 테이블 반환 공통 함수 예외 : "+e);
 			return null;
 		}
 		
@@ -140,7 +140,7 @@ public class AuctionDao extends Dao {
 	}
 	
 	
-	// 1.차 등록 성호
+	// 1.차 등록
 	  public int bcarsubmit(CarDto dto) {
 	      try {
 	         // ---------------------------------------------- 차량 등록 ---------------------------------------- // 
@@ -177,11 +177,8 @@ public class AuctionDao extends Dao {
 	            count = ps.executeUpdate();
 	            if( count == 1 ) {  // Car 주소 등록 성공시 
 	               // --------------------------- 차량 이미지 등록 -------------------------------------------------//
-	               //Map<키,값> imglist;
-	               //Map<이미지pk,이미지명> imglist;
-	                  // 모든 키 호출 : dto.getImglist().keySet()
-	                  // 모든 값 호출 : dto.getImglist().values()
-	               dto.getImglist().values().forEach( (img)->{ // 반복문 사용하는 이유.. map컬렉션에는 여러개 사진이 있으므로
+
+	               dto.getImglist().values().forEach( (img)->{
 	                  try {
 	                     String sql2 = "insert into carimg(ciimg ,cno)values(?,?) ";
 	                     ps =conn.prepareStatement( sql2 );
@@ -233,7 +230,7 @@ public class AuctionDao extends Dao {
 		return auctionDto;
 	  }
 	
-//게시물 상세조회 [9월19일 고연진]------------------------------------------------------------
+//게시물 상세조회------------------------------------------------------------
 	public AuctionDto auctionPrint(int cno) {
 		System.out.println("Dao들어옴> "+cno);
 		AuctionDto auctionDto = new AuctionDto();
@@ -269,7 +266,7 @@ public class AuctionDao extends Dao {
 	}//f()
 	
 	
-// 입찰 등록 시 유효성 검사를 위한 함수 (타이머) [10월6일 고연진] 
+// 입찰 등록 시 유효성 검사를 위한 함수 (타이머) 
 	public int astate(int ano) {		
 	
 		try {
@@ -287,7 +284,7 @@ public class AuctionDao extends Dao {
 
 
 	
-//스크랩(찜) 테이블 추가[9월21일 고연진]----------------------------------------------------------------	
+//스크랩(찜) 테이블 추가----------------------------------------------------------------	
 	public boolean clipping(int mno, int ano) {
 		try {//스크랩 항목 추가하기
 			//스크랩 눌린 상태면 true로 아니면 false.( 현재 상태 확인을 하기 위한 함수 필요)
@@ -321,7 +318,7 @@ public class AuctionDao extends Dao {
 	}//f()
 	
 	
-// 경매상태 변경 함수 [고연진]-------------------------------------------------------------
+// 경매상태 변경 함수-------------------------------------------------------------
 	 public boolean astateChage(int ano) {
 		try {//타이머가 종료되면 경매상태를 종료(1)로 변경
 			String sql= "update auctionInfo set astate=1 where ano=?";
@@ -438,7 +435,7 @@ public class AuctionDao extends Dao {
 				return list;
 				
 			} catch (Exception e) {
-				System.out.println("좌표 내 제품 검색 sql문 예외1 : "+e);
+				//System.out.println("좌표 내 제품 검색 sql문 예외1 : "+e);
 				return null;
 			}
 		}

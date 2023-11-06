@@ -37,7 +37,7 @@ function auctionPrint(cno){
         url : "/nichanaecha/AuctionController",     
         method : "get", 
         async: false,  
-        data : {type:'상세페이지조회',cno : cno},      
+        data : {type:'PageInquiry',cno : cno},      
         success : r=>{
             //console.log('차정보출력성공'); console.log(r)
             ano = r.ano;//경매번호 
@@ -99,7 +99,7 @@ function auctionPrint(cno){
 3. 소켓통신 이후 입찰 출력을 다시 한번 실행해줌
  */
 function batPrint(ano){
-		console.log('입찰내역출력함수실행')
+		//console.log('입찰내역출력함수실행')
 	    $.ajax({
         url : "/nichanaecha/BattingController",     
         method : "get",   
@@ -139,7 +139,7 @@ function battingBtn(){console.log('battingBtn() 실행')
 		$.ajax({
 	      	url : "/nichanaecha/AuctionController",     
 	     	method : "get",   
-	     	data : {type:'본인글유효성',ano:ano},   
+	     	data : {type:'MyWriteVal',ano:ano},   
 	            async: false,   
 	      	success : r=>{
 				  //console.log('본인글 유효성 검사 통신성공');
@@ -249,7 +249,7 @@ function getBuyTop(ano){
 			  $.ajax({
       			url : "/nichanaecha/MemberPointController",     
      			method : "put",   
-     			data : {type:'입찰금환급', mno:returnMno, gold:returnBprice},   
+     			data : {type:'refund', mno:returnMno, gold:returnBprice},   
          	    async: false,   
       			success : b=>{
 					  //console.log('환급성공')
@@ -357,7 +357,7 @@ function settimer(){
 */
 
 function clipping(){
-   console.log('스크랩onclick함수 실행')
+   //console.log('스크랩onclick함수 실행')
    //회원에 한해 사용 가능하도록
    if(loginMid==0){location.href='../member/memberlogin.jsp'; return}
    $.ajax({
@@ -385,7 +385,7 @@ function clipping(){
  
  */
 
-function clipState(){ console.log('찜하기상태변화함수실행')
+function clipState(){ //console.log('찜하기상태변화함수실행')
    let state= document.querySelector('.state');
   
    //비회원

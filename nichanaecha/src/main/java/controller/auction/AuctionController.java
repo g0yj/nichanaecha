@@ -34,22 +34,19 @@ public class AuctionController extends HttpServlet {
     }
 
 	
-    
-    
-    
-    //상세페이지조회 [9월19일 고연진]   
+
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String type= request.getParameter("type");
-		System.out.println("타입확인 > "+type);
+		//System.out.println("타입확인 > "+type);
 		ObjectMapper mapper=new ObjectMapper(); 
-		if(type.equals("거래종료유효성")) {
+		if(type.equals("TerminationVal")) {
 			int ano = Integer.parseInt(request.getParameter("ano"));
 			int astate = AuctionDao.getInstence().astate(ano);
 			//System.out.println("컨트롤러에서 출력되는 astate > "+astate);
 			response.setContentType("application/json;charset=UTF-8");
 			response.getWriter().print(astate);
 		}
-		else if(type.equals("상세페이지조회")) {
+		else if(type.equals("PageInquiry")) {
 			int cno = Integer.parseInt(request.getParameter("cno"));
 			//System.out.println("cno : "+cno);
 			AuctionDto result= AuctionDao.getInstence().auctionPrint(cno);
@@ -59,7 +56,7 @@ public class AuctionController extends HttpServlet {
 			response.getWriter().print(jsonObject);
 			
 		}
-		else if(type.equals("본인글유효성")) {
+		else if(type.equals("MyWriteVal")) {
 			int ano = Integer.parseInt(request.getParameter("ano"));
 			
 		}/*
@@ -109,7 +106,7 @@ public class AuctionController extends HttpServlet {
 	         if( item.isFormField() ) { System.out.println( item.getString() ); } // .getString() : 해당 요청 input의 value 호출 
 	         else { // 2. file 필드
 	            // 만약에 파일 필드이면 업로드 진행
-	               System.out.println( "업로드할 파일명 : " + item.getName() ); // .getName()
+	              // System.out.println( "업로드할 파일명 : " + item.getName() ); // .getName()
 	            // 6.업로드 경로 + 파일명 [ 조합 ] 
 	                                          
 	               // 파일명에 중복이 있을때 식별 생성                   
@@ -123,7 +120,7 @@ public class AuctionController extends HttpServlet {
 	               
 	            File fileUploadPath = new File( uploadPath +"/"+ filename ) ;
 	            
-	               System.out.println( "업로드경로와 파일명이 조합된 경로 : " + fileUploadPath );
+	               //System.out.println( "업로드경로와 파일명이 조합된 경로 : " + fileUploadPath );
 	            item.write( fileUploadPath ); // .write("저장할경로[파일명포함]") 파일 업로드할 경로를 file타입으로 제공 
 	            // 7. 업로드 된 파일명을 Map에 저장 [ -DB에 저장할려고  ]
 	            i++;   // i는 임의의 값 
@@ -204,9 +201,9 @@ public class AuctionController extends HttpServlet {
 //경매상태변경	
 	protected void doPut(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		int ano= Integer.parseInt(request.getParameter("ano"));
-		System.out.println("경매상태변경 ano > "+ano);
+		//System.out.println("경매상태변경 ano > "+ano);
 		boolean result= AuctionDao.getInstence().astateChage(ano);
-		System.out.println("경매상태변경 성공 여부: "+result);
+		//System.out.println("경매상태변경 성공 여부: "+result);
 		response.setContentType("application/json;charset=UTF-8");
 		response.getWriter().print(result);
 	

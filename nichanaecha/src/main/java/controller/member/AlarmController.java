@@ -22,18 +22,18 @@ public class AlarmController extends HttpServlet {
 	}
 
 	
-//알람등록[10월7일 고연진]	
+//알람등록
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 	String type= request.getParameter("type");
-	System.out.println("알람등록컨트롤러들어옴 > type: "+type);
+	//System.out.println("알람등록컨트롤러들어옴 > type: "+type);
 	// 입찰등록 성공 시 입찰자에게 알림
-	if(type.equals("입찰")||type.equals("환급")) {
+	if(type.equals("bid")||type.equals("refund")) {
 		int mno=((MemberDto)(request.getSession().getAttribute("loginDto"))).getMno();
 		long gold=Long.parseLong(request.getParameter("gold"));
-		System.out.println("출금된 사람 > "+mno);
-		System.out.println("출금금액> "+gold);
+		//System.out.println("출금된 사람 > "+mno);
+		//System.out.println("출금금액> "+gold);
 		boolean result = AlarmDao.getInstence().buyAlarm(mno,gold,type);
-		System.out.println("Dao에서 전달 받은 값 > "+result);
+		//System.out.println("Dao에서 전달 받은 값 > "+result);
 		response.setContentType("application/json;charset=UTF-8");
 		response.getWriter().print(result);
 		
