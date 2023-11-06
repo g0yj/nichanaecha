@@ -3,7 +3,7 @@ package model.dto;
 public class AlarmDto {
 
 	private String mid;//클라이언트소켓 사용하는 회원 아이디
-	private String alarm; //클라이언트소켓
+	private String alarm; //클라이언트소켓 
 
 	
 	public AlarmDto() {}

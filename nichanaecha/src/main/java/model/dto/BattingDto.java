@@ -15,10 +15,10 @@ public class BattingDto {
 	String mid;//입찰회원아이디
 	String amid;//안쓸꺼임,, 
 
+	  
+//회원이 참여한 모든 경매글 가져올 때 사용함
 	
-//회원이 참여한 모든 경매글 가져올 때 사용
-	
-	
+	   
 	public BattingDto(int mno, int ano) {
 		super();
 		this.mno = mno;
